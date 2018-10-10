@@ -1,8 +1,21 @@
+package AutokonfiguratorV1;
+
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
+
+
+/**
+ * This car-configurator lets you assemble a new car by choosing a model of a car and vehicle equipment.
+ * You can make an order afterwards where you see the combined price and the delivery date which is predefined after 2 weeks of the order
+ *
+ * @author  Goran Mladjanovic
+ * @version 1.0
+ * @since   2018-10.10
+ */
+
 
 public class Menue {
 
@@ -14,6 +27,9 @@ public class Menue {
     private Ausfuehrung pickedAusfuehrung;
 
 
+    /**
+     * Create a new car and add it to the arrayist
+     */
     public void fillPlattList() {
         autos.addPlattform(new Plattform("Golf", 34900));
         autos.addPlattform(new Plattform("Passat", 48900));
@@ -21,12 +37,19 @@ public class Menue {
         autos.addPlattform(new Plattform("Touareg", 70000));
     }
 
+    /**
+     * Create a new car equipment and add it to the arraylist
+     */
     public void fillAusList() {
         packet.addAusfuehrung(new Ausfuehrung("Standard", 0));
         packet.addAusfuehrung(new Ausfuehrung("Sport", 12900));
         packet.addAusfuehrung(new Ausfuehrung("Luxus", 14900));
     }
 
+    /**
+     * a utility method which checks if the scanner input is a string
+     * @return the a string for a switch case
+     */
     public String getAuswahl() {
         Scanner l = new Scanner(System.in);
         String temp = "";
@@ -39,6 +62,10 @@ public class Menue {
         return temp;
     }
 
+    /**
+     * a utility method which checks if the sanner input is a integer
+     * @return an integer for a switch case
+     */
     public int getZahl() {
         Scanner test = new Scanner(System.in);
         int zahl = 0;
@@ -51,6 +78,11 @@ public class Menue {
         return zahl;
     }
 
+    /**
+     * a utility method for a second integrated switch case
+     * @exception InterruptedException
+     * @throws InterruptedException
+     */
     public void reAsk() throws InterruptedException {
         switch (getZahl()) {
             case 1:
@@ -65,6 +97,11 @@ public class Menue {
         }
     }
 
+    /**
+     * Shows the initial menu for the user
+     * @exception InterruptedException
+     * @throws InterruptedException
+     */
     public void initMenue() throws InterruptedException {
 
         System.out.println();
@@ -106,6 +143,11 @@ public class Menue {
         }
     }
 
+    /**
+     * shows the submenue with available car elements and lets you chose one
+     * @exception InterruptedException
+     * @throws InterruptedException
+     */
     public void menuePlattform() throws InterruptedException {
 
 
@@ -138,12 +180,14 @@ public class Menue {
         }
     }
 
+    /**
+     * shows the submenu with available equipment elements and lets you chose one
+     * @exception InterruptedException
+     * @throws InterruptedException
+     */
     public void menueAusstattung() throws InterruptedException {
 
-        //Falls Ausstattung schon vor der Plattform ausgewählt wurde
-       /* if (pickedAusfuehrung != null) {
-            initMenue();
-        }*/
+
 
         System.out.println("*****************************");
         System.out.println("Diese Pakete stehen Ihnen zur Auswahl");
@@ -190,6 +234,12 @@ public class Menue {
         }
     }
 
+    /**
+     * shows the submenu where you can control your order including price and elements the user has chosen.
+     * Further on the user can change element by choice or set the order which will be delivered after two weeks or end the program.
+     * @exception InterruptedException
+     * @throws InterruptedException
+     */
     public void bestellMenue() throws InterruptedException {
 
         LocalDate today = LocalDate.now();
@@ -227,6 +277,11 @@ public class Menue {
         }
     }
 
+    /**
+     * Main Method which initialize the arraylist for car model and equipment. Then the initial menue is loaded
+     * @param args
+     * @throws InterruptedException
+     */
     public static void main(String[] args) throws InterruptedException {
 
         Menue start = new Menue();

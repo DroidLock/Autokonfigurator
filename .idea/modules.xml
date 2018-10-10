@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/src/main/java/org/mladi/itk/pos1/Autokonfigurator/Autokonfigurator.iml" filepath="$PROJECT_DIR$/src/main/java/org/mladi/itk/pos1/Autokonfigurator/Autokonfigurator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AutokonfiguratorV1.iml" filepath="$PROJECT_DIR$/AutokonfiguratorV1.iml" />
+    </modules>
+  </component>
+</project>
